@@ -26,6 +26,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    idType: 'uuid',
   }),
 
   // Sharp is now an optional dependency -
