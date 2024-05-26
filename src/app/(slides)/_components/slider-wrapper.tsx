@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type Props = {
   children: React.ReactNode;
@@ -43,17 +44,11 @@ export function SliderWrapper({ children }: Props) {
       </div>
 
       <div className='absolute bottom-5 right-5 mt-3 flex justify-between'>
-        <button
-          className='w-20 bg-white px-2 py-1 text-sm text-black'
-          onClick={scrollPrev}
-        >
-          Prev
+        <button className='px-2 py-1 text-sm text-white' onClick={scrollPrev}>
+          <ChevronLeft />
         </button>
-        <button
-          className='w-20 bg-white px-2 py-1 text-sm text-black'
-          onClick={scrollNext}
-        >
-          Next
+        <button className='px-2 py-1 text-sm text-white' onClick={scrollNext}>
+          <ChevronRight />
         </button>
       </div>
     </div>
