@@ -5,16 +5,8 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'BJA Members',
-  description: 'BJA Dashboard',
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: {
-      index: false,
-      follow: false,
-    },
-  },
+  title: 'Supabase Presentation',
+  description: 'Supabase Medellín first meetup presentation',
 }
 
 export default function RootLayout({
