@@ -1,33 +1,35 @@
-import { postgresAdapter } from '@payloadcms/db-postgres'
+import { postgresAdapter } from '@payloadcms/db-postgres';
 // import { payloadCloud } from '@payloadcms/plugin-cloud'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import path from 'path'
-import { buildConfig } from 'payload/config'
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
+import path from 'path';
+import { buildConfig } from 'payload/config';
 // import sharp from 'sharp'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'url';
 
-import { Users } from './collections/Users'
+import { Users } from './collections/Users';
+import { Slides } from './collections/Slides';
+import { Pages } from './collections/Pages';
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 export default buildConfig({
   admin: {
-    user: Users.slug,
+    user: Users.slug
   },
-  collections: [Users],
+  collections: [Users, Slides, Pages],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
+    outputFile: path.resolve(dirname, 'payload-types.ts')
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || '',
+      connectionString: process.env.DATABASE_URI || ''
     },
-    idType: 'uuid',
-  }),
+    idType: 'uuid'
+  })
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
@@ -37,4 +39,4 @@ export default buildConfig({
   // for this before reaching 3.0 stable
 
   // sharp,
-})
+});

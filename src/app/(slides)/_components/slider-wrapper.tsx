@@ -38,7 +38,7 @@ export function SliderWrapper({ children }: Props) {
   }, [emblaApi]);
 
   return (
-    <div className='embla relative h-screen w-full bg-neutral-950'>
+    <div className='embla relative h-screen w-full bg-primary'>
       <div className='embla__viewport  h-full' ref={emblaRef}>
         <div className='embla__container h-full'>{children}</div>
       </div>
